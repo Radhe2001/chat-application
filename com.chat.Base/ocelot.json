@@ -1,0 +1,18 @@
+{
+	"Routes": [
+		{
+			"UpstreamPathTemplate": "/api/v1/user/{everything}",
+			"UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+			"DownstreamPathTemplate": "/api/{everything}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [{ "Host": "localhost", "Port": 5214 }],
+			"AddHeadersToRequest": {
+				"X-User-Id": "{X-User-Id}",
+				"X-User-Role": "{X-User-Role}"
+			}
+		}
+	],
+	"GlobalConfiguration": {
+		"BaseUrl": "http://localhost:5216"
+	}
+}

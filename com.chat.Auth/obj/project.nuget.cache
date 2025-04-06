@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "plhxMpK3QZU=",
+  "success": true,
+  "projectFilePath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/auth.csproj",
+  "expectedPackageFiles": [
+    "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/9.0.3/microsoft.aspnetcore.authentication.jwtbearer.9.0.3.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.cors/2.3.0/microsoft.aspnetcore.cors.2.3.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.3.0/microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.http.extensions/2.3.0/microsoft.aspnetcore.http.extensions.2.3.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.http.features/2.3.0/microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.openapi/9.0.1/microsoft.aspnetcore.openapi.9.0.1.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.extensions.fileproviders.abstractions/8.0.0/microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.identitymodel.abstractions/8.7.0/microsoft.identitymodel.abstractions.8.7.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.7.0/microsoft.identitymodel.jsonwebtokens.8.7.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.identitymodel.logging/8.7.0/microsoft.identitymodel.logging.8.7.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.identitymodel.protocols/8.0.1/microsoft.identitymodel.protocols.8.0.1.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/8.0.1/microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.identitymodel.tokens/8.7.0/microsoft.identitymodel.tokens.8.7.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.net.http.headers/2.3.0/microsoft.net.http.headers.2.3.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/system.buffers/4.6.0/system.buffers.4.6.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/system.identitymodel.tokens.jwt/8.7.0/system.identitymodel.tokens.jwt.8.7.0.nupkg.sha512",
+    "/home/radheshyam/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
