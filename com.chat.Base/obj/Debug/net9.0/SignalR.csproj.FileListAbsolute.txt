@@ -105,3 +105,4 @@
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/obj/Debug/net9.0/SignalR.sourcelink.json

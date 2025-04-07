@@ -101,3 +101,4 @@
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.User/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.User/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.User/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.User/obj/Debug/net8.0/User.sourcelink.json

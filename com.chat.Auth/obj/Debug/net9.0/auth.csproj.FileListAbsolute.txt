@@ -39,3 +39,4 @@
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/obj/Debug/net9.0/auth.pdb
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/obj/Debug/net9.0/auth.genruntimeconfig.cache
 /home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/obj/Debug/net9.0/ref/auth.dll
+/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/obj/Debug/net9.0/auth.sourcelink.json

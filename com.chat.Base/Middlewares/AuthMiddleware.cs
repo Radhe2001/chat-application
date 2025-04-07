@@ -18,19 +18,38 @@ public class AuthMiddleware
 
                 var allowedPaths = new[]
                         {
-                                "/api/v1/user/user/login",
+                                "/api/v1/user/user/login","/chat","/chat/negotiate"
                         };
 
                 var path = context.Request.Path.Value?.ToLower();
+
+                var isWebSocketRequest = context.WebSockets.IsWebSocketRequest;
+
+                // Bypass token validation for SignalR negotiate + WebSocket upgrade
+                if ((path.StartsWith("/chat") && isWebSocketRequest) ||
+                    path == "/chat/negotiate" ||
+                    path == "/api/v1/user/user/login")
+                {
+                        await _next(context);
+                        return;
+                }
                 Console.WriteLine(path);
                 if (allowedPaths.Contains(path))
                 {
                         await _next(context);
                         return;
                 }
+                var token = context.Request.Query["access_token"].FirstOrDefault();
 
+                if (string.IsNullOrEmpty(token))
+                {
+                        var bearerToken = context.Request.Headers["Authorization"].FirstOrDefault();
+                        if (!string.IsNullOrEmpty(bearerToken) && bearerToken.StartsWith("Bearer "))
+                        {
+                                token = bearerToken.Substring("Bearer ".Length).Trim();
+                        }
+                }
 
-                var token = context.Request.Headers["Authorization"].FirstOrDefault();
 
                 if (string.IsNullOrEmpty(token))
                 {

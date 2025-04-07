@@ -1,48 +1,35 @@
+using com.chat.Base.Middleware;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Microsoft.AspNetCore.Cors;
-using com.chat.Base.Middleware;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
-#region builder configuration
+builder.Configuration.AddJsonFile("ocelot.json");
 
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-
-#endregion
-
-#region service registration
-
-var allowedOrigins = new[] {
-    "http://localhost:3000",
-};
+var allowedOrigins = new[] { "http://localhost:3000" };
 
 builder.Services.AddCors(options =>
 {
-        options.AddPolicy("AllowSpecificOrigins", builder =>
+        options.AddPolicy("AllowSpecificOrigins", policy =>
         {
-                builder.WithOrigins(allowedOrigins)
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
+                policy.WithOrigins(allowedOrigins)
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
         });
 });
-builder.Services.AddOcelot();
-builder.Services.AddHttpClient(); // 👈 Required
 
-#endregion
+builder.Services.AddHttpClient();
+builder.Services.AddOcelot();
 
 var app = builder.Build();
 
-#region middleware addition
-
-app.UseHttpsRedirection();
 app.UseRouting();
-app.UseMiddleware<AuthMiddleware>();
-await app.UseOcelot();
-app.UseHttpsRedirection();
+app.UseCors("AllowSpecificOrigins");
+app.UseMiddleware<AuthMiddleware>(); // Your JWT middleware
 
-#endregion
+await app.UseOcelot();
+
 
 app.Run();
-
