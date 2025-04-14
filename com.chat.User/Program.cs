@@ -2,6 +2,9 @@ using com.chat.User.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.AspNetCore.Cors;
+using com.chat.User.Utils;
+using com.chat.User.Services;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 var allowedOrigins = new[] {
     "http://localhost:5216",
 };
+
+
+builder.Services.AddSingleton<EmailService>();
+builder.Services.AddSingleton<PasswordHasher>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 
 builder.Services.AddCors(options =>
 {
@@ -22,7 +31,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-                     new MySqlServerVersion(new Version(8, 0, 33))));
+                    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")))
+                    );
 
 var app = builder.Build();
 
