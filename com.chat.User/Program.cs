@@ -18,6 +18,7 @@ builder.Services.AddSingleton<EmailService>();
 builder.Services.AddSingleton<PasswordHasher>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddHttpClient();
 
 builder.Services.AddCors(options =>
 {

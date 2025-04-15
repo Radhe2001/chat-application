@@ -67,6 +67,7 @@ public class AuthController : ControllerBase
                 var claims = new[]
                 {
                         new Claim("userId", input.UserId.ToString()),
+                         new Claim("email", input.Email.ToString()),
                         new Claim(ClaimTypes.Role, input.Role)
                 };
 

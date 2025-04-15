@@ -40,5 +40,81 @@ namespace com.chat.User.Controllers
                                 return StatusCode(500, "Internal server error occurred." + e.Message);
                         }
                 }
+
+                [HttpPost("accountVerification")]
+                public async Task<ActionResult> AccountVerification([FromBody] UserAuthInput input)
+                {
+                        try
+                        {
+                                if (input.taskType == "tokenValidation")
+                                {
+                                        await _authService.ValidateAccountVerficationToken(input.verificationToken);
+                                        return Ok("Token Exists");
+                                }
+                                else if (input.taskType == "accountDeauth")
+                                {
+                                        await _authService.AccountDeauthentication(input.verificationToken);
+                                        return Ok("Account Verified Successfully");
+                                }
+                                else
+                                {
+                                        await _authService.AccountVerification(input.verificationToken);
+                                        return Ok("Account Verified Successfully");
+                                }
+                        }
+                        catch (Exception e)
+                        {
+                                if (e.Message.Contains("Account does not exists.")) return NotFound(e.Message);
+                                return StatusCode(500, "Internal server error occurred." + e.Message);
+                        }
+                }
+
+                [HttpPost("login")]
+                public async Task<IActionResult> UserLogin([FromBody] UserAuthInput input)
+                {
+                        try
+                        {
+                                var token = await _authService.UserLogin(input.email, input.password);
+                                if (token == "User does not exists") return NotFound(token);
+                                if (token == "Password is not valid") return BadRequest(token);
+                                return Ok(token);
+                        }
+                        catch (Exception e)
+                        {
+                                return StatusCode(500, "Internal server error occurred." + e.Message);
+                        }
+                }
+
+
+                [HttpPost("forgotPassword")]
+                public async Task<IActionResult> ForgotPassword([FromBody] UserAuthInput input)
+                {
+                        try
+                        {
+                                var res = await _authService.ForgotPassword(input.email);
+                                if (res == "User does not exists.") return NotFound(res);
+                                else return Ok("Reset password mail has been sent successfully");
+                        }
+                        catch (Exception e)
+                        {
+                                return StatusCode(500, "Internal server error occurred." + e.Message);
+                        }
+                }
+
+                [HttpPost("resetPassword")]
+                public async Task<IActionResult> ResetPassword([FromBody] UserAuthInput input)
+                {
+                        try
+                        {
+                                var res = await _authService.ResetPassword(input.email, input.password);
+                                if (res == "User does not exists.") return NotFound(res);
+                                else return Ok("Password has been reset successfully");
+                        }
+                        catch (Exception e)
+                        {
+                                if (e.Message.Contains("Account does not exists.")) return NotFound(e.Message);
+                                return StatusCode(500, "Internal server error occurred." + e.Message);
+                        }
+                }
         }
 }
