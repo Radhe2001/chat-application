@@ -18,7 +18,11 @@ public class AuthMiddleware
 
                 var allowedPaths = new[]
                         {
-                                "/api/v1/user/user/login","/api/v1/user/user/register","/chat","/chat/negotiate"
+                                "/api/v1/user/user/login",
+                                "/api/v1/user/user/sendmail",
+                                "/api/v1/user/user/register",
+                                "/chat",
+                                "/chat/negotiate"
                         };
 
                 var path = context.Request.Path.Value?.ToLower();

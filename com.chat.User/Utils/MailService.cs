@@ -2,40 +2,44 @@ using Microsoft.Extensions.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
+using System.Text.Json;
+
 
 namespace com.chat.User.Utils;
 public class EmailService
 {
-        private readonly IConfiguration _configuration;
-
-        public EmailService(IConfiguration configuration)
+        public async Task SendEmail(string toMail, string subject, string body)
         {
-                _configuration = configuration;
-        }
-
-        public async Task SendEmailAsync(string toEmail, string subject, string body)
-        {
-                var smtpServer = _configuration["EmailSettings:SmtpServer"];
-                var smtpPort = int.Parse(_configuration["EmailSettings:SmtpPort"]);
-                var smtpUser = _configuration["EmailSettings:SmtpUser"];
-                var smtpPassword = _configuration["EmailSettings:SmtpPassword"];
-                var fromEmail = _configuration["EmailSettings:FromEmail"];
-
-                var mailMessage = new MailMessage
+                try
                 {
-                        From = new MailAddress(fromEmail),
-                        Subject = subject,
-                        Body = body,
-                        IsBodyHtml = true,
-                };
+                        var factory = new ConnectionFactory { HostName = "localhost", Port = 5672 };
+                        using var connection = await factory.CreateConnectionAsync();
+                        using var channel = await connection.CreateChannelAsync();
 
-                mailMessage.To.Add(toEmail);
+                        await channel.QueueDeclareAsync(queue: "sendMail", durable: true, exclusive: false, autoDelete: false,
+                            arguments: null);
 
-                using (var smtpClient = new SmtpClient(smtpServer, smtpPort))
+                        var messageBody = new
+                        {
+                                toMail = toMail,
+                                subject = subject,
+                                messageBody = body
+                        };
+                        var jsonString = JsonSerializer.Serialize(messageBody); // or JsonConvert.SerializeObject if using Newtonsoft.Json
+
+                        // Convert to byte array
+                        var requestBody = Encoding.UTF8.GetBytes(jsonString);
+
+                        await channel.BasicPublishAsync(exchange: string.Empty, routingKey: "sendMail", body: requestBody);
+                        Console.WriteLine($" [x] Sent {messageBody}");
+
+                }
+                catch (Exception ex)
                 {
-                        smtpClient.Credentials = new NetworkCredential(smtpUser, smtpPassword);
-                        smtpClient.EnableSsl = true;
-                        await smtpClient.SendMailAsync(mailMessage);
+                        Console.WriteLine(ex.Message);
                 }
         }
 }

@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using com.chat.User.Entity;
 
-
 namespace com.chat.User.Data;
 public class UserDbContext : DbContext
 {
@@ -14,6 +13,6 @@ public class UserDbContext : DbContext
     {
         modelBuilder.Entity<UserInfo>().HasKey(u => u.UserId);
     }
-
-
 }
+
+

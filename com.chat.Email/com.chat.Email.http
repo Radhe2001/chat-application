@@ -1,0 +1,6 @@
+@com.chat.Email_HostAddress = http://localhost:5062
+
+GET {{com.chat.Email_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

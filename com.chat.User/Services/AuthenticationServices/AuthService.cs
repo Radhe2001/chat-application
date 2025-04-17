@@ -85,7 +85,7 @@ public class AuthService : IAuthService
                                         <p>Best regards,<br/><strong>The Chat App Team</strong></p>
                                         </body>
                                         </html>";
-                        await _emailService.SendEmailAsync(toEmail, subject, body);
+                        _emailService.SendEmail(toEmail, subject, body);
                 }
                 catch (Exception ex)
                 {
@@ -203,7 +203,7 @@ public class AuthService : IAuthService
                                 </body>
                                 </html>";
 
-                        await _emailService.SendEmailAsync(toEmail, subject, body);
+                        await _emailService.SendEmail(toEmail, subject, body);
                         return "success";
                 }
                 catch (Exception ex)

@@ -1,7 +1,9 @@
 using com.chat.User.Models;
 using Microsoft.AspNetCore.Mvc;
 using com.chat.User.Services;
-
+using RabbitMQ.Client;
+using System.Text;
+using com.chat.User.Utils;
 
 namespace com.chat.User.Controllers
 {
@@ -10,10 +12,12 @@ namespace com.chat.User.Controllers
         public class UserController : ControllerBase
         {
                 private readonly IAuthService _authService;
+                private readonly EmailService _emailService;
 
-                public UserController(IAuthService authService)
+                public UserController(IAuthService authService, EmailService emailService)
                 {
                         _authService = authService;
+                        _emailService = emailService;
                 }
 
                 [HttpGet("GetRoleAndId")]
@@ -116,5 +120,14 @@ namespace com.chat.User.Controllers
                                 return StatusCode(500, "Internal server error occurred." + e.Message);
                         }
                 }
+
+                [HttpPost("sendMail")]
+                public async Task<IActionResult> SendMail()
+                {
+                        _emailService.SendEmail("radheshyamjha469@gmail.com", "This is a testing email", "Tested successfully");
+                        return Ok("Success");
+
+                }
+
         }
 }
