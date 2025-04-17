@@ -29,6 +29,7 @@ public class EmailService : IEmailService
             IsBodyHtml = true,
         };
 
+
         mailMessage.To.Add(toEmail);
 
         using (var smtpClient = new SmtpClient(smtpServer, smtpPort))
@@ -36,6 +37,7 @@ public class EmailService : IEmailService
             smtpClient.Credentials = new NetworkCredential(smtpUser, smtpPassword);
             smtpClient.EnableSsl = true;
             await smtpClient.SendMailAsync(mailMessage);
+            Console.WriteLine("Mail sent successfully");
         }
     }
 

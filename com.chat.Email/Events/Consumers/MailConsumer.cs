@@ -1,15 +1,22 @@
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
-
 using RabbitMQ.Client.Events;
 using System.Text;
+using System.Text.Json;
+using com.chat.Email.Models;
+using com.chat.Email.Services;
 
 namespace com.chat.Email.Events;
 
 public class RabbitMqConsumerService : BackgroundService
 {
 
+    private readonly IEmailService _emailService;
 
+    public RabbitMqConsumerService(IEmailService emailService)
+    {
+        _emailService = emailService;
+    }
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         try
@@ -30,9 +37,9 @@ public class RabbitMqConsumerService : BackgroundService
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine($" [x] Received {message}");
 
-                Console.WriteLine("MQ MESSAGE RECEIVED");
+                EmailInput input = JsonSerializer.Deserialize<EmailInput>(message);
+                await _emailService.SendEmail(input.toMail, input.subject, input.messageBody);
 
                 await Task.Yield();
             };
@@ -45,7 +52,7 @@ public class RabbitMqConsumerService : BackgroundService
             Console.WriteLine($"RabbitMQ connection failed: {ex.Message}");
         }
 
-        await Task.Delay(-1, stoppingToken);
+        await Task.Delay(0, stoppingToken);
     }
 
 

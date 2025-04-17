@@ -30,12 +30,9 @@ public class EmailService
                         };
                         var jsonString = JsonSerializer.Serialize(messageBody); // or JsonConvert.SerializeObject if using Newtonsoft.Json
 
-                        // Convert to byte array
                         var requestBody = Encoding.UTF8.GetBytes(jsonString);
 
                         await channel.BasicPublishAsync(exchange: string.Empty, routingKey: "sendMail", body: requestBody);
-                        Console.WriteLine($" [x] Sent {messageBody}");
-
                 }
                 catch (Exception ex)
                 {

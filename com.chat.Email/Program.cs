@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
     });
 });
 builder.Services.AddHostedService<RabbitMqConsumerService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddSingleton<IEmailService, EmailService>();
 builder.Services.AddControllers();
 
 var app = builder.Build();

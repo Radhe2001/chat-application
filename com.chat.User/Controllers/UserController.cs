@@ -121,13 +121,5 @@ namespace com.chat.User.Controllers
                         }
                 }
 
-                [HttpPost("sendMail")]
-                public async Task<IActionResult> SendMail()
-                {
-                        _emailService.SendEmail("radheshyamjha469@gmail.com", "This is a testing email", "Tested successfully");
-                        return Ok("Success");
-
-                }
-
         }
 }
