@@ -58,7 +58,7 @@ namespace com.chat.User.Controllers
                                 else if (input.taskType == "accountDeauth")
                                 {
                                         await _authService.AccountDeauthentication(input.verificationToken);
-                                        return Ok("Account Verified Successfully");
+                                        return Ok("Account Removed Successfully");
                                 }
                                 else
                                 {
