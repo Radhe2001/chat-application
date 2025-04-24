@@ -79,8 +79,8 @@ namespace com.chat.User.Controllers
                         try
                         {
                                 var token = await _authService.UserLogin(input.email, input.password);
-                                if (token == "User does not exists") return NotFound(token);
-                                if (token == "Password is not valid") return BadRequest(token);
+                                if (token == "User does not exists") return NotFound("User does not exists");
+                                if (token == "Password is not valid") return BadRequest("Input credentials are invalid");
                                 return Ok(token);
                         }
                         catch (Exception e)

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("com.chat.Email")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d23618a8100548a36b554877fe79fe5d07da126")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5dd058e6aa402cf09ca7d6158ea35d09c0e862c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("com.chat.Email")]
 [assembly: System.Reflection.AssemblyTitleAttribute("com.chat.Email")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
