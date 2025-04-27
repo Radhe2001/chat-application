@@ -37,7 +37,7 @@ public class RabbitMqConsumerService : BackgroundService
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-
+                Console.WriteLine("hii");
                 EmailInput input = JsonSerializer.Deserialize<EmailInput>(message);
                 await _emailService.SendEmail(input.toMail, input.subject, input.messageBody);
 

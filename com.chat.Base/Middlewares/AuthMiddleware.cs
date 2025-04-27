@@ -20,6 +20,8 @@ public class AuthMiddleware
                         {
                                 "/api/v1/user/user/login",
                                 "/api/v1/user/user/register",
+                                 "/api/v1/user/user/forgotpassword",
+                                "/api/v1/user/user/resetpassword",
                                 "/api/v1/user/user/accountverification",
                                 "/chat",
                                 "/chat/negotiate"

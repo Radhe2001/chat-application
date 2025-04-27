@@ -980,31 +980,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Arif\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/radheshyam/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arif\\Desktop\\practice\\temp\\chat-application\\com.chat.Auth\\auth.csproj",
+      "projectUniqueName": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/auth.csproj",
       "projectName": "auth",
-      "projectPath": "C:\\Users\\Arif\\Desktop\\practice\\temp\\chat-application\\com.chat.Auth\\auth.csproj",
-      "packagesPath": "C:\\Users\\Arif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Arif\\Desktop\\practice\\temp\\chat-application\\com.chat.Auth\\obj\\",
+      "projectPath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/auth.csproj",
+      "packagesPath": "/home/radheshyam/.nuget/packages/",
+      "outputPath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Auth/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Arif\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/radheshyam/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1065,7 +1058,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
