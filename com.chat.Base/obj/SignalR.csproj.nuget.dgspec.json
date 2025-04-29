@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/SignalR.csproj": {}
+    "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Base/SignalR.csproj": {}
   },
   "projects": {
-    "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/SignalR.csproj": {
+    "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Base/SignalR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/SignalR.csproj",
+        "projectUniqueName": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Base/SignalR.csproj",
         "projectName": "SignalR",
-        "projectPath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/SignalR.csproj",
+        "projectPath": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Base/SignalR.csproj",
         "packagesPath": "/home/radheshyam/.nuget/packages/",
-        "outputPath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/obj/",
+        "outputPath": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Base/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/radheshyam/.nuget/NuGet/NuGet.Config"

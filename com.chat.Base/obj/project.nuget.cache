@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nG3/G2XXQnA=",
+  "dgSpecHash": "Qp57r7hdzIY=",
   "success": true,
-  "projectFilePath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Base/SignalR.csproj",
+  "projectFilePath": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Base/SignalR.csproj",
   "expectedPackageFiles": [
     "/home/radheshyam/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
     "/home/radheshyam/.nuget/packages/ipaddressrange/6.1.0/ipaddressrange.6.1.0.nupkg.sha512",

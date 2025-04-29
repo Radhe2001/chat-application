@@ -5,15 +5,20 @@
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [{ "Host": "localhost", "Port": 5171 }],
 			"UpstreamPathTemplate": "/chat/negotiate",
-			"UpstreamHttpMethod": ["POST"]
+			"UseWebSockets": true,
+			"UpstreamHttpMethod": ["POST", "GET", "OPTIONS"]
 		},
 		{
 			"DownstreamPathTemplate": "/chat/{everything}",
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [{ "Host": "localhost", "Port": 5171 }],
 			"UpstreamPathTemplate": "/chat/{everything}",
-			"UpstreamHttpMethod": ["GET", "POST", "OPTIONS"],
-			"UseWebSockets": true
+			"UseWebSockets": true,
+			"UpstreamHttpMethod": ["POST", "GET", "OPTIONS"],
+			"AddHeadersToRequest": {
+				"Connection": "Upgrade",
+				"Upgrade": "websocket"
+			}
 		},
 		{
 			"UpstreamPathTemplate": "/api/v1/user/{everything}",

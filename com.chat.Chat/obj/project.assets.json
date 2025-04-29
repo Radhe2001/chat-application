@@ -2473,11 +2473,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Chat/Chat.csproj",
+      "projectUniqueName": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Chat/Chat.csproj",
       "projectName": "Chat",
-      "projectPath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Chat/Chat.csproj",
+      "projectPath": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Chat/Chat.csproj",
       "packagesPath": "/home/radheshyam/.nuget/packages/",
-      "outputPath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Chat/obj/",
+      "outputPath": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Chat/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/radheshyam/.nuget/NuGet/NuGet.Config"

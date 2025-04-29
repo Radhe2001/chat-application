@@ -27,7 +27,8 @@ var app = builder.Build();
 
 app.UseRouting();
 app.UseCors("AllowSpecificOrigins");
-app.UseMiddleware<AuthMiddleware>(); // Your JWT middleware
+app.UseWebSockets();
+app.UseMiddleware<AuthMiddleware>();
 
 await app.UseOcelot();
 

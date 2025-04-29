@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6RUGkTg/Psk=",
+  "dgSpecHash": "R0e5ayhgxvc=",
   "success": true,
-  "projectFilePath": "/home/radheshyam/Desktop/dotnet_projects/firstSignalR/BackEnd/com.chat.Chat/Chat.csproj",
+  "projectFilePath": "/home/radheshyam/Desktop/dotnet_projects/chat-application/com.chat.Chat/Chat.csproj",
   "expectedPackageFiles": [
     "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/home/radheshyam/.nuget/packages/microsoft.aspnetcore.authorization/2.2.0/microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
