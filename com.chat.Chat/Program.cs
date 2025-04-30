@@ -3,7 +3,7 @@ using com.chat.Chat.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.AspNetCore.Cors;
-
+using com.chat.Chat.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +23,9 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ChatDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
                      new MySqlServerVersion(new Version(8, 0, 33))));
+
+
+builder.Services.AddScoped<IChatService, ChatService>();
 
 
 builder.Services.AddSignalR();

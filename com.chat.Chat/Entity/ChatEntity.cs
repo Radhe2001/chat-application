@@ -1,20 +1,23 @@
 namespace com.chat.Chat.Entity;
-
-public class ChatEntity
+public class Chats
 {
-        public int UserId { get; set; }
-        public string Role { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public string? UserBio { get; set; }
-        public string? ProfilePicture { get; set; }
-        public bool IsUserVerified { get; set; }
-        public string? UserVerificationToken { get; set; }
-        public bool IsActive { get; set; }
-        public bool HasNotification { get; set; }
-        public string? SocketId { get; set; }
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-}
+        public int Id { get; set; }
 
+        public string Message { get; set; } = null!;
+
+        public int SentBy { get; set; }
+
+        public DateTime SentOn { get; set; }
+
+        public bool IsGroupChat { get; set; }
+
+        public int SentTo { get; set; }
+
+        public bool IsReceived { get; set; } = false;
+
+        public bool IsActive { get; set; } = true;
+
+        public User SentByUser { get; set; } = null!;
+
+        public User SentToUser { get; set; } = null!;
+}

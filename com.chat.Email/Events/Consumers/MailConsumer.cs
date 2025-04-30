@@ -17,6 +17,7 @@ public class RabbitMqConsumerService : BackgroundService
     {
         _emailService = emailService;
     }
+    
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         try

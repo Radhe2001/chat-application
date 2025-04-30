@@ -16,5 +16,6 @@ public class UserInfo
         public string? SocketId { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+
 }
 

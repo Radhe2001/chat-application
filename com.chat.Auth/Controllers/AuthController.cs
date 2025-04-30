@@ -21,12 +21,14 @@ public class AuthController : ControllerBase
         [HttpPost("validate")]
         public IActionResult ValidateToken()
         {
-                var authHeader = Request.Headers["Authorization"].FirstOrDefault();
+                var token = Request.Headers["Authorization"].FirstOrDefault();
 
-                if (string.IsNullOrWhiteSpace(authHeader) || !authHeader.StartsWith("Bearer "))
+                if (string.IsNullOrWhiteSpace(token) || token.StartsWith("Bearer "))
                         return Unauthorized("Missing or invalid Authorization header");
 
-                var token = authHeader.Substring("Bearer ".Length);
+
+                // var token = authHeader.Substring("Bearer ".Length);
+                // Console.WriteLine(token);
 
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]);
@@ -55,7 +57,7 @@ public class AuthController : ControllerBase
                                 role
                         });
                 }
-                catch
+                catch (Exception ex)
                 {
                         return Unauthorized("Invalid token");
                 }
@@ -78,7 +80,7 @@ public class AuthController : ControllerBase
                     issuer: _config["Jwt:Issuer"],
                     audience: _config["Jwt:Audience"],
                     claims: claims,
-                    expires: DateTime.UtcNow.AddMinutes(1),
+                    expires: DateTime.UtcNow.AddDays(1),
                     signingCredentials: creds
                 );
 

@@ -23,7 +23,7 @@ public class AuthMiddleware
                                  "/api/v1/user/user/forgotpassword",
                                 "/api/v1/user/user/resetpassword",
                                 "/api/v1/user/user/accountverification",
-                                "/chat",
+                                // "/chat",
                                 "/chat/negotiate"
                         };
 
@@ -31,36 +31,25 @@ public class AuthMiddleware
 
                 var isWebSocketRequest = context.WebSockets.IsWebSocketRequest;
 
-                // Bypass token validation for SignalR negotiate + WebSocket upgrade
-                if ((path.StartsWith("/chat") && isWebSocketRequest) ||
-                    path == "/chat/negotiate" ||
-                    path == "/api/v1/user/user/login")
-                {
-                        await _next(context);
-                        return;
-                }
+
                 Console.WriteLine(path);
                 if (allowedPaths.Contains(path))
                 {
                         await _next(context);
                         return;
                 }
-                var token = context.Request.Query["access_token"].FirstOrDefault();
+                var token = context?.Request.Headers["Authorization"].ToString();
 
-                if (string.IsNullOrEmpty(token))
+                if (!string.IsNullOrEmpty(token) && token.StartsWith("Bearer "))
                 {
-                        var bearerToken = context.Request.Headers["Authorization"].FirstOrDefault();
-                        if (!string.IsNullOrEmpty(bearerToken) && bearerToken.StartsWith("Bearer "))
-                        {
-                                token = bearerToken.Substring("Bearer ".Length).Trim();
-                        }
+                        token = token.Substring("Bearer ".Length).Trim();
                 }
 
-
                 if (string.IsNullOrEmpty(token))
                 {
-                        context.Response.StatusCode = 401;
-                        await context.Response.WriteAsync("No token provided");
+
+                        context!.Response.StatusCode = 401;
+                        await context!.Response.WriteAsync("No token provided");
                         return;
                 }
 
@@ -68,6 +57,7 @@ public class AuthMiddleware
                 request.Headers.Add("Authorization", token);
 
                 var response = await _httpClient.SendAsync(request);
+                Console.WriteLine(response.IsSuccessStatusCode);
 
                 if (!response.IsSuccessStatusCode)
                 {

@@ -1,32 +1,43 @@
 using Microsoft.AspNetCore.SignalR;
+using com.chat.Chat.Services;
+using com.chat.Chat.Models;
+using com.chat.Chat.Entity;
+
 
 namespace com.chat.Chat.Hubs;
 
 public class ChatHub : Hub
 {
+        private readonly IChatService _chatService;
+        public ChatHub(IChatService chatService)
+        {
+                _chatService = chatService;
+        }
+
         public override async Task OnConnectedAsync()
         {
                 var httpContext = Context.GetHttpContext();
-                Console.WriteLine(">>> Incoming connection...");
                 if (httpContext is not null)
                 {
-                        Console.WriteLine("Headers:");
-                        foreach (var header in httpContext.Request.Headers)
-                        {
-                                Console.WriteLine($"{header.Key}: {header.Value}");
-                        }
+                        int userId = Convert.ToInt32(httpContext?.Request.Headers["X-User-Id"]);
+                        await _chatService.SetSocketId(userId, Context.ConnectionId.ToString());
+                        await Clients.Caller.SendAsync("UserDetails", userId);
                 }
-
                 await base.OnConnectedAsync();
         }
 
 
-
-        public async Task SendMessage(string user, string message)
+        public async Task GetContactList(int userId)
         {
-                Console.WriteLine($"Connected:  | Role: ");
+                User contactList = await _chatService.GetContactList(userId);
+                await Clients.All.SendAsync("ReceiveMessage", contactList);
+        }
 
-                await Clients.All.SendAsync("ReceiveMessage", user, message);
+        public async Task SendMessage(string message)
+        {
+                Console.WriteLine($"Connected:  | Role: {message}");
+
+                await Clients.All.SendAsync("ReceiveMessage", message);
         }
 
         public Task CreateConnection(string token)
